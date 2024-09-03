@@ -1,0 +1,62 @@
+#server:
+#  port: 9090
+#
+#spring:
+#  application:
+#    name: authentication-with-keycloak
+##Resource server configuration
+#  security:
+#    oauth2:
+#      resourceserver:
+#        jwt:
+#          issuer-uri: http://localhost:8080/realms/Google-Auth
+#          jwk-set-uri: ${spring.security.oauth2.resourceserver.jwt.issuer-uri}/protocol/openid-connect/certs
+##          jwk-set-uri: http://localhost:8080/realms/myauth/protocol/openid-connect/certs
+## Keycloak configuration
+#keycloak:
+#  realm: Google-Auth
+#  resource: Google-Auth
+#  auth-server-url: http://localhost:8080/
+#  credentials:
+#    secret: 8LCke90ZTjEGGw37GK8zRVplmFQl13sQ
+#    client-id: Register-Client
+#    provider: secret
+## Swagger configuration
+#springdoc:
+#  swagger-ui:
+#    oauth:
+#      client-id: Register-Client
+#      client-secret: 8LCke90ZTjEGGw37GK8zRVplmFQl13sQ
+#      realm: Google-Auth
+#    tags-sorter: alpha
+
+server:
+  port: 9090
+
+spring:
+  application:
+    name: authentication-with-keycloak
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/spring_oauth2
+          jwk-set-uri: http://localhost:8080/realms/spring_oauth2/protocol/openid-connect/certs
+
+# Keycloak configuration
+keycloak:
+  realm: spring_oauth2
+  resource: my_client
+  auth-server-url: http://localhost:8080/
+  credentials:
+    secret: pIrqH1XNthR8xB1RVjkRFJ7eZiPArOEB
+
+# Swagger configuration
+springdoc:
+  swagger-ui:
+    oauth:
+      client-id: my_client
+      client-secret: pIrqH1XNthR8xB1RVjkRFJ7eZiPArOEB
+      realm: spring_oauth2
+    tags-sorter: alpha
