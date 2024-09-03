@@ -30,7 +30,7 @@ public class UserController {
         User user = userService.getCurrentUser(jwt.getSubject());
 
         APIResponse<User> apiResponse = APIResponse.<User>builder()
-                .message("Get current user successfully")
+                .message("Get current user successfully!")
                 .status(HttpStatus.OK)
                 .payload(user)
                 .time(LocalDateTime.now())
